@@ -58,6 +58,69 @@ public class Main {
         }
     }
 
+    //Question -- 4
+    public static void Equation(){
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();  // not used but taken as per question
+
+        int result = (a*a*a) + (a*a*b) + (2*a*a*b) + (2*a*b*b) + (a*b*b) + (b*b*b);
+
+        System.out.println("Result = " + result);
+    }
+
+
+    //Question -- 5
+
+    public static void Tyres(){
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+
+            int cars = sc.nextInt();
+            int bikes = sc.nextInt();
+
+            int tyres = (cars * 4) + (bikes * 2);
+
+            System.out.println(tyres);
+        }
+    }
+
+    //Question -- 6
+
+    public static void MinDiscount(){
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String itemName = "";
+        double minDiscount = Double.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+
+            String line = sc.nextLine();
+            String[] parts = line.split(",");
+
+            String name = parts[0];
+            double price = Double.parseDouble(parts[1]);
+            double discount = Double.parseDouble(parts[2]);
+
+            double discountAmount = price * discount / 100;
+
+            if (discountAmount < minDiscount) {
+                minDiscount = discountAmount;
+                itemName = name;
+            }
+        }
+
+        System.out.println(itemName);
+    }
+
     public static void main(String[] args) {
         int num = 29;
 
@@ -72,6 +135,12 @@ public class Main {
         PythagoreanTriplets(limit);
 
         maxMarks();
+
+        Equation();
+
+        Tyres();
+
+        MinDiscount();
     
     }
 }

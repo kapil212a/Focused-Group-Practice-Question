@@ -1,6 +1,8 @@
 import java.util.*;
 public class Arrayss {
+
     //Question -- 11
+
     public static void secondLargest(){
         int[] arr = {1,2,4,7,7,5};
 
@@ -91,10 +93,130 @@ public class Arrayss {
         }
     }
 
+    //Question -- 14
+
+    public static void ReverseArray(){
+        int[] arr = {5,4,3,2,1};
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while(left < right){
+
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    //Question -- 15
+
+    public static void KthLargest(){
+        int[] nums = {3,2,1,5,6,4};
+        int k = 2;
+
+        Arrays.sort(nums);
+
+        System.out.println(nums[nums.length - k]);
+    }
+
+    //Question -- 16
+
+    public static void MissingNumber(){
+        int[] nums = {3,0,1};
+
+        int n = nums.length;
+        int expected = n * (n + 1) / 2;
+
+        int sum = 0;
+
+        for(int num : nums)
+            sum += num;
+
+        System.out.println(expected - sum);
+    }
+
+    //Question -- 17
+
+    public static void FindDuplicate(){
+        int[] arr = {1,3,4,2,2};
+
+        Set<Integer> set = new HashSet<>();
+
+        for(int num : arr){
+
+            if(set.contains(num)){
+                System.out.println(num);
+                break;
+            }
+
+            set.add(num);
+        }
+    }
+
+    //Question -- 18
+
+    public static void MergeSortedArrays(){
+        int[] nums1 = {1,2,3,0,0,0};
+        int[] nums2 = {2,5,6};
+
+        int m = 3;
+        int n = 3;
+
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+
+        while (j >= 0) {
+
+            if (i >= 0 && nums1[i] > nums2[j])
+                nums1[k--] = nums1[i--];
+            else
+                nums1[k--] = nums2[j--];
+        }
+
+        System.out.println(Arrays.toString(nums1));
+    }
+
+    //Question -- 20
+
+    public static void reverse(int[] nums, int start, int end){
+        while(start < end){
+
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
     public static void main(String[] args) {
         secondLargest();
         mergeInternal();
         matrixIdentical();
+        ReverseArray();
+        KthLargest();
+        MissingNumber();
+        MissingNumber();
+        FindDuplicate();
+
+        int[] nums = {1,2,3,4,5,6,7};
+        int k = 3;
+
+        k = k % nums.length;
+
+        reverse(nums, 0, nums.length-1);
+        reverse(nums, 0, k-1);
+        reverse(nums, k, nums.length-1);
+
+        System.out.println(Arrays.toString(nums));
+
     }
 }
 

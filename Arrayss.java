@@ -3,6 +3,38 @@ public class Arrayss {
 
     //Question -- 11
 
+    public static void SpiralMatrix(int matrix[][]){
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+
+            for (int i = left; i <= right; i++)
+                System.out.print(matrix[top][i] + " ");
+            top++;
+
+            for (int i = top; i <= bottom; i++)
+                System.out.print(matrix[i][right] + " ");
+            right--;
+
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--)
+                    System.out.print(matrix[bottom][i] + " ");
+                bottom--;
+            }
+
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--)
+                    System.out.print(matrix[i][left] + " ");
+                left++;
+            }
+        }
+    }
+
+    //Question -- 12
+
     public static void secondLargest(){
         int[] arr = {1,2,4,7,7,5};
 
@@ -31,7 +63,7 @@ public class Arrayss {
         System.out.println("Second Largest : " + secondLargest);
     }
 
-    //Question -- 12
+    //Question -- 13
 
     public static void mergeInternal(){
         int[][] intervals = {{1,3},{2,6},{8,10},{15,18}};
@@ -58,7 +90,7 @@ public class Arrayss {
             System.out.println(Arrays.toString(i));
     }
 
-    //Question -- 13
+    //Question -- 14
 
     public static void matrixIdentical(){
         int[][] A = {
@@ -93,7 +125,7 @@ public class Arrayss {
         }
     }
 
-    //Question -- 14
+    //Question -- 15
 
     public static void ReverseArray(){
         int[] arr = {5,4,3,2,1};
@@ -114,7 +146,7 @@ public class Arrayss {
         System.out.println(Arrays.toString(arr));
     }
 
-    //Question -- 15
+    //Question -- 16
 
     public static void KthLargest(){
         int[] nums = {3,2,1,5,6,4};
@@ -125,7 +157,7 @@ public class Arrayss {
         System.out.println(nums[nums.length - k]);
     }
 
-    //Question -- 16
+    //Question -- 17
 
     public static void MissingNumber(){
         int[] nums = {3,0,1};
@@ -141,8 +173,9 @@ public class Arrayss {
         System.out.println(expected - sum);
     }
 
-    //Question -- 17
-
+    //Question -- 18
+    
+    
     public static void FindDuplicate(){
         int[] arr = {1,3,4,2,2};
 
@@ -159,7 +192,8 @@ public class Arrayss {
         }
     }
 
-    //Question -- 18
+
+    //Question -- 19
 
     public static void MergeSortedArrays(){
         int[] nums1 = {1,2,3,0,0,0};
@@ -197,24 +231,37 @@ public class Arrayss {
         }
     }
     public static void main(String[] args) {
+        int matrix[][] = {
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12},
+                {13,14,15,16},
+                {17,18,19,20}
+        };
+        SpiralMatrix(matrix);
+
         secondLargest();
+
         mergeInternal();
+
         matrixIdentical();
+
         ReverseArray();
+
         KthLargest();
+
         MissingNumber();
+
         MissingNumber();
+
         FindDuplicate();
 
         int[] nums = {1,2,3,4,5,6,7};
         int k = 3;
-
         k = k % nums.length;
-
         reverse(nums, 0, nums.length-1);
         reverse(nums, 0, k-1);
         reverse(nums, k, nums.length-1);
-
         System.out.println(Arrays.toString(nums));
 
     }

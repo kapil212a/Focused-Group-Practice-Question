@@ -191,6 +191,39 @@ public class Arrays2 {
 
         System.out.println(valleys);
     }
+
+    //Question -- 29
+
+    public static void StringCompression(){
+        String str = "aabbbbeeeeffggg";
+
+        int count = 1;
+
+        for(int i=0;i<str.length();i++){
+
+            if(i < str.length()-1 && str.charAt(i) == str.charAt(i+1)){
+                count++;
+            }
+            else{
+                System.out.print(str.charAt(i) + "" + count);
+                count = 1;
+            }
+        }
+    }
+
+    //Question -- 30
+
+    public static void ReverseString(){
+        String s = "Capgemini";
+
+        String reversed = "";
+
+        for(int i=s.length()-1;i>=0;i--){
+            reversed += s.charAt(i);
+        }
+
+        System.out.println(reversed);
+    }
     
     
     public static void main(String[] args) {
@@ -211,5 +244,9 @@ public class Arrays2 {
         SeasonFinder();
 
         valleys();
+
+        StringCompression();
+
+        ReverseString();
     }
 }

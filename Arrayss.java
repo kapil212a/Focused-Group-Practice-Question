@@ -230,6 +230,118 @@ public class Arrayss {
             end--;
         }
     }
+
+    //Question -- 21
+    public static int MaxProduct(int nums[]){
+        int max = nums[0];
+        int min = nums[0];
+        int result = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+
+            if (nums[i] < 0) {
+                int temp = max;
+                max = min;
+                min = temp;
+            }
+
+            max = Math.max(nums[i], max * nums[i]);
+            min = Math.min(nums[i], min * nums[i]);
+
+            result = Math.max(result, max);
+        }
+
+        return result;
+    }
+
+    //Question -- 22
+
+    public static void countPair(){
+        int[] arr = {1,5,7,-1,5};
+        int target = 6;
+
+        int count = 0;
+
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        for(int num : arr){
+
+            int complement = target - num;
+
+            if(map.containsKey(complement))
+                count += map.get(complement);
+
+            map.put(num, map.getOrDefault(num,0) + 1);
+        }
+
+        System.out.println(count);
+    }
+
+    //Question -- 23
+    public static void movesZero(){
+         int[] nums = {0,1,0,3,12};
+
+        int index = 0;
+
+        for(int i=0;i<nums.length;i++){
+
+            if(nums[i] != 0){
+                nums[index++] = nums[i];
+            }
+        }
+
+        while(index < nums.length){
+            nums[index++] = 0;
+        }
+
+        System.out.println(Arrays.toString(nums));
+    }
+
+    //Question -- 24
+
+    public static int majorityElement(int nums[]){
+        int candidate = 0;
+        int count = 0;
+
+        for(int num : nums){
+
+            if(count == 0){
+                candidate = num;
+            }
+            if(num == candidate){
+                count++;
+            }
+            else{
+                count--;
+            } 
+            
+        }
+
+        return candidate;
+    }
+
+    //Question -- 25
+
+    public static void IntersectionArrays(){
+        int[] nums1 = {1,2,2,1};
+        int[] nums2 = {2,2};
+
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> result = new HashSet<>();
+
+        for(int num : nums1){
+            set1.add(num);
+        }
+
+        for(int num : nums2){
+            if(set1.contains(num)){
+                result.add(num);
+            }
+        }
+
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
         int matrix[][] = {
                 {1,2,3,4},
@@ -263,6 +375,18 @@ public class Arrayss {
         reverse(nums, 0, k-1);
         reverse(nums, k, nums.length-1);
         System.out.println(Arrays.toString(nums));
+
+        int[] nums1 = {2,3,-2,4};
+        System.out.println(MaxProduct(nums1));
+
+        countPair();
+
+        movesZero();
+
+        int[] num = {2,2,1,1,1,2,2};
+        System.out.println(majorityElement(num));
+
+        IntersectionArrays();
 
     }
 }

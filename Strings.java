@@ -1,6 +1,5 @@
 import java.util.*;
 public class Strings {
-
     
     //Question -- 26
 
@@ -90,7 +89,7 @@ public class Strings {
                 count++;
             }
             else{
-                System.out.print(str.charAt(i) + "" + count);
+                System.out.println(str.charAt(i) + "" + count);
                 count = 1;
             }
         }
@@ -112,8 +111,6 @@ public class Strings {
     
     
     public static void main(String[] args) {
-        
-
         moveHash();
 
         SeasonFinder();

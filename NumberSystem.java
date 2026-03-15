@@ -1,7 +1,9 @@
 import java.util.*;
 
 public class NumberSystem {
+    
     //Question -- 1
+
     public static boolean isPrime(int n) {
         if (n <= 1) return false;
 
